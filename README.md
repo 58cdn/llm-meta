@@ -8,6 +8,8 @@
 | --- | --- |
 | `newapi/ratio_config-v1.json` | 基础价格，未加充值手续费 |
 | `newapi/ratio_config-v1-with-fee.json` | 基础价格乘以官方 Unified Billing 充值成本系数，目前为 1.05 |
+| `newapi/cf_models.txt` | 官方 Workers AI 目录中的全部模型 ID，单行英文逗号分隔 |
+| `newapi/cf_models_mapping.json` | New API 模型映射，格式为 `短名称 → 完整模型 ID` |
 | `data/cloudflare-workers-ai.json` | 完整模型目录、原始报价、神经元报价、换算结果与每个字段的价格来源 |
 | `data/sync-report.json` | 可导入模型、需要单位适配的模型、未标价模型及官方报价差异 |
 
@@ -33,6 +35,15 @@ https://raw.githubusercontent.com/58cdn/llm-meta/master/newapi/ratio_config-v1-w
 选择需要的模型，检查同步差异后应用并保存。文件是 `success/message/data` 包装的 `/api/ratio_config` 协议，不要作为 models.dev 数据解析。New API 具体界面取决于部署版本。
 
 如果同名模型已有计费表达式，先在 New API 将该模型切换为「按 Token」并保存，再应用倍率；本项目的数值倍率不会强行清除表达式。JSON 中没有的模型或字段也不代表应将已有价格清零。导入价格不等于对应渠道和测试端点已经支持该模型。
+
+## 模型列表与映射
+
+- [支持的模型列表](https://raw.githubusercontent.com/58cdn/llm-meta/master/newapi/cf_models.txt)：保留官方完整模型 ID 和大小写，以英文逗号分隔，包含尚无可导入价格的模型。
+- [模型映射](https://raw.githubusercontent.com/58cdn/llm-meta/master/newapi/cf_models_mapping.json)：JSON 对象，例如 `"glm-5.3-flash": "@cf/zai-org/glm-5.3-flash"`，可用于 New API 渠道的模型映射配置。
+
+两份文件与价格使用同一批官方目录数据生成，并在同一次更新中提交。映射保留已有的第三方及历史条目，这些条目不代表当前 Workers AI 目录仍支持它们；清单见同步报告的 `preserved_mapping_aliases`。短名称冲突时停止同步并报错。
+
+模型列表使用完整 ID，映射的键使用短名称。若客户端以短名称请求，还需在 New API 配置对应的渠道模型和计费项；本项目的价格文件按完整 ID 发布。仓库文件更新不会自动修改 New API 实例的渠道配置。
 
 ## 其他定价预设
 
@@ -94,7 +105,7 @@ node scripts/sync-cloudflare.mjs --dry-run
 node scripts/sync-cloudflare.mjs --write
 ```
 
-默认 dry-run，只联网读取与显示预期改动。`--write` 仅管理上述四个 JSON，先完成全部抓取、解析和覆盖检查再写文件，并回读核验；不要在生成文件中手工维护价格。没有内容变化时不重写文件。脚本不执行 Git 操作。
+默认 dry-run，只联网读取与显示预期改动。`--write` 管理上述六个文件，先完成全部抓取、解析、映射冲突及覆盖检查再写文件，并回读核验；不要在生成文件中手工维护价格。没有内容变化时不重写文件。脚本不执行 Git 操作。
 
 ## GitHub Actions
 
@@ -102,7 +113,7 @@ node scripts/sync-cloudflare.mjs --write
 
 - 每日 UTC 17:00，即次日北京时间 01:00 触发；也可在 Actions 页面手动运行。
 - 工作流和代码变更推送到默认分支时运行一次；生成 JSON 的提交不形成循环。
-- 校验通过后抓取并生成价格数据，仅在四个生成 JSON 有变化时提交并推送。
+- 校验通过后抓取并生成价格、模型列表和映射，仅在六个生成文件有变化时提交并推送。
 - 只使用仓库内置 `GITHUB_TOKEN`，不需要设置 Cloudflare Secret；同步任务有 `contents: write` 权限。
 - 如果仓库规则禁止机器人直接推送默认分支，提交步骤将失败并保留错误，需按仓库协作规则改为 PR 流程；不会强推或绕过保护。
 - GitHub 定时任务可能延迟，不保证精确到 01:00；工作流必须存在于默认分支。公开仓库 60 天无活动时定时任务可能停用，需要重新启用。参见 [GitHub schedule 文档](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)。

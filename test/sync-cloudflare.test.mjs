@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseCatalog, parsePricing, parseFee, catalogTokenPrices, build, ensureNoLoss } from '../scripts/sync-cloudflare.mjs';
+import { parseCatalog, parsePricing, parseFee, catalogTokenPrices, build, ensureNoLoss, makeModelFiles } from '../scripts/sync-cloudflare.mjs';
 
 const model = (id, task, price_text = '') => ({ id, task, price_text, url: 'https://developers.cloudflare.com/workers-ai/models/test/' });
 const pricing = (rows) => ({ usd_per_1000_neurons: 0.011, free_neurons_per_day: 10000, rows });
@@ -84,4 +84,25 @@ test('published price disappearance blocks replacement, including cached-price l
   const prev = { data: { model_ratio: { a: 1 }, cache_ratio: { a: 0.1 } } };
   assert.throws(() => ensureNoLoss(prev, { data: { model_ratio: { a: 2 }, cache_ratio: {} } }), /disappeared/);
   assert.doesNotThrow(() => ensureNoLoss(prev, { data: { model_ratio: { a: 2 }, cache_ratio: { a: 0.2 } } }));
+});
+
+test('model list and mappings include unpriced models, preserve case and existing aliases', () => {
+  const records = [{ id: '@cf/test/model-1B', status: 'price_not_published' }, { id: '@cf/baai/bge-m3', status: 'token_priced' }];
+  const original = { external: 'vendor/external', legacy: '@cf/old/legacy' };
+  const files = makeModelFiles(records, original);
+  assert.equal(files.models, '@cf/baai/bge-m3,@cf/test/model-1B');
+  assert.equal(files.mapping['model-1B'], '@cf/test/model-1B');
+  assert.equal(files.mapping.external, 'vendor/external');
+  assert.equal(files.mapping.legacy, '@cf/old/legacy');
+  assert.deepEqual(files.preservedAliases, ['external', 'legacy']);
+  assert.deepEqual(original, { external: 'vendor/external', legacy: '@cf/old/legacy' });
+  assert.deepEqual(makeModelFiles([...records].reverse(), files.mapping), files);
+});
+
+test('conflicting aliases and invalid mappings fail before files can be replaced', () => {
+  assert.throws(() => makeModelFiles([{ id: '@cf/a/same' }, { id: '@cf/b/same' }]), /Ambiguous/);
+  assert.throws(() => makeModelFiles([{ id: '@cf/a/same' }], { same: 'other/same' }), /conflicts/);
+  assert.throws(() => makeModelFiles([{ id: '@cf/a/same' }], []), /JSON object/);
+  assert.throws(() => makeModelFiles([{ id: '@cf/a/same' }], { broken: null }), /Invalid model mapping/);
+  assert.throws(() => makeModelFiles([{ id: '@cf/a/same' }, { id: '@cf/a/same' }]), /duplicate/);
 });

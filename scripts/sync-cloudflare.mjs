@@ -176,6 +176,31 @@ export function ensureNoLoss(previous, next) {
   }
 }
 
+export function makeModelFiles(records, previousMapping = {}) {
+  if (!previousMapping || Array.isArray(previousMapping) || typeof previousMapping !== 'object') throw Error('Model mapping must be a JSON object');
+  const mapping = new Map(Object.entries(previousMapping));
+  for (const [alias, target] of mapping) {
+    if (!alias.trim() || typeof target !== 'string' || !target.trim()) throw Error(`Invalid model mapping: ${alias}`);
+  }
+  const ids = records.map((r) => r.id).sort();
+  if (!ids.length || new Set(ids).size !== ids.length) throw Error('Empty/duplicate supported models');
+  const generated = new Map();
+  for (const id of ids) {
+    if (!/^@(?:cf|hf)\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(id)) throw Error(`Invalid supported model ID: ${id}`);
+    const alias = id.split('/').at(-1);
+    if (generated.has(alias) && generated.get(alias) !== id) throw Error(`Ambiguous model alias: ${alias}`);
+    if (mapping.has(alias) && mapping.get(alias) !== id) throw Error(`Existing model alias conflicts with catalog: ${alias}`);
+    generated.set(alias, id);
+    mapping.set(alias, id);
+  }
+  return {
+    models: ids.join(','),
+    mapping: sortObject(Object.fromEntries(mapping)),
+    // Existing third-party and historical aliases are user data, not proof of current catalog support.
+    preservedAliases: [...mapping.keys()].filter((alias) => !generated.has(alias)).sort(),
+  };
+}
+
 async function fetchText(url) {
   const response = await fetch(url, { signal: AbortSignal.timeout(60000), headers: { 'User-Agent': 'llm-meta-price-sync/1.0' } });
   if (!response.ok) throw Error(`HTTP ${response.status}: ${url}`);
@@ -190,7 +215,7 @@ async function readOptional(path) {
 
 export async function main(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
-    console.log('Usage: node scripts/sync-cloudflare.mjs [--dry-run | --write]\nDefault: dry-run. Fetch public Cloudflare prices; --write updates only managed JSON outputs.');
+    console.log('Usage: node scripts/sync-cloudflare.mjs [--dry-run | --write]\nDefault: dry-run. Fetch public Cloudflare prices; --write updates managed prices, model list and mapping.');
     return;
   }
   if (args.some((a) => !['--dry-run', '--write'].includes(a)) || (args.includes('--dry-run') && args.includes('--write'))) throw Error('Invalid arguments; use --help');
@@ -208,13 +233,19 @@ export async function main(args = process.argv.slice(2)) {
     const removed = previousIds.filter((id) => !nextIds.has(id));
     if (removed.length) throw Error(`Catalog models disappeared; review removal before updating: ${removed.join(', ')}`);
   }
+  const mappingText = await readOptional(resolve(ROOT, 'newapi/cf_models_mapping.json'));
+  const modelFiles = makeModelFiles(result.records, mappingText === null ? {} : JSON.parse(mappingText));
+  result.report.preserved_mapping_aliases = modelFiles.preservedAliases;
   console.log(JSON.stringify({ mode: args.includes('--write') ? 'write' : 'dry-run', catalog_models: result.records.length,
+    model_mapping_entries: Object.keys(modelFiles.mapping).length, preserved_mapping_aliases: modelFiles.preservedAliases.length,
     exported_token_models: result.report.exported_token_models.length,
     requires_unit_adapter: result.report.requires_unit_adapter.length, price_not_published: result.report.price_not_published.length,
     warnings: result.warnings, fee }, null, 2));
   const managed = {
     'newapi/ratio_config-v1.json': result.base,
     'newapi/ratio_config-v1-with-fee.json': result.withFee,
+    'newapi/cf_models.txt': modelFiles.models,
+    'newapi/cf_models_mapping.json': modelFiles.mapping,
     'data/cloudflare-workers-ai.json': {
       schema_version: 1, currency: 'USD', sources: SOURCES,
       usd_per_1000_neurons: pricing.usd_per_1000_neurons,
@@ -227,7 +258,7 @@ export async function main(args = process.argv.slice(2)) {
   // Finish parsing, coverage and loss checks before touching any published output.
   for (const [path, value] of Object.entries(managed)) {
     const target = resolve(ROOT, path);
-    const content = `${JSON.stringify(value, null, 2)}\n`;
+    const content = typeof value === 'string' ? value : `${JSON.stringify(value, null, 2)}\n`;
     if (await readOptional(target) === content) continue;
     console.log(`${args.includes('--write') ? 'WRITE' : 'WOULD WRITE'} ${path} sha256=${hash(content)}`);
     if (args.includes('--write')) {

@@ -39,12 +39,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git add -- newapi/ratio_config-v1.json newapi/ratio_config-v1-with-fee.json data/cloudflare-workers-ai.json data/sync-report.json
+          git add -- newapi/ratio_config-v1.json newapi/ratio_config-v1-with-fee.json newapi/cf_models.txt newapi/cf_models_mapping.json data/cloudflare-workers-ai.json data/sync-report.json
           if git diff --cached --quiet; then
             echo 'No price or coverage changes; no commit needed.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'chore: 同步 Cloudflare Workers AI 价格'
+          git commit -m 'chore: 同步 Cloudflare Workers AI 价格与模型映射'
           git push
