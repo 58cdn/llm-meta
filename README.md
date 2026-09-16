@@ -34,6 +34,17 @@ https://raw.githubusercontent.com/58cdn/llm-meta/master/newapi/ratio_config-v1-w
 
 如果同名模型已有计费表达式，先在 New API 将该模型切换为「按 Token」并保存，再应用倍率；本项目的数值倍率不会强行清除表达式。JSON 中没有的模型或字段也不代表应将已有价格清零。导入价格不等于对应渠道和测试端点已经支持该模型。
 
+## 其他定价预设
+
+以下为独立维护的公共定价源，可按需在 New API 中选用。本项目不合并或镜像这些数据，Cloudflare Workers AI 定价请使用上方的专用同步地址。
+
+| 预设 | 地址 |
+| --- | --- |
+| 官方定价预设（New API 内置预设，basellm 维护） | [https://basellm.github.io/llm-metadata/api/newapi/ratio_config-v1-base.json](https://basellm.github.io/llm-metadata/api/newapi/ratio_config-v1-base.json) |
+| models.dev 定价预设 | [https://models.dev/api.json](https://models.dev/api.json) |
+
+“官方定价预设”是 New API 的预设名称，不代表 Cloudflare 官方发布的同步接口。models.dev 使用独立的数据格式，需通过 New API 对应预设导入。
+
 ## 价格口径
 
 官方来源：
@@ -64,23 +75,21 @@ create_cache_ratio = 缓存写入价格 ÷ 输入价格（仅来源明确发布�
 
 同一字段同时有目录美元报价与总表神经元价格时，以神经元换算为准，并核对差异；明显的 token 报价冲突会使整个任务失败。总表缺失而目录明确发布的 token 价格，会以 `catalog_usd` 标记其来源。缺价格不会静默变成零。
 
-## 覆盖边界
+## 模型覆盖
 
-首次抓取（2026-09-16）得到 65 个模型：
+最新覆盖情况见 [`data/sync-report.json`](data/sync-report.json)：
 
-- 38 个可按 token 倍率导入，包含 BGE embeddings/reranker、翻译模型和语言模型。
-- 19 个需要独立的单位适配，原始价格保存在完整目录中，不进入 token 倍率文件。
-- 8 个在抓取的目录与总表中未发布可用价格，单独列在报告里；不代表它们免费。
+- 按 token 计费的模型转换为 New API 倍率，包括语言模型、文本向量、重排序和翻译模型。
+- 按分钟、字符、像素或步数计费的模型保留原始报价，需要相应的计费适配，不进入 token 倍率文件。
+- 未发布可用价格的模型单独列出，不按免费模型处理。
 
 语音分钟、TTS 输入字符数、图像 tile/像素/步数与音频 token 是不同单位。要将这些模型接入 New API 精确计费，必须先确认渠道适配器实际提供哪些用量，以及部署版本的计费表达式是否支持这些字段；不能把每分钟价格填入每百万 token 的栏位。即使价格摘要显示 `$0.00 per step`，也不会自动认定其免费。
 
-例如官方 `smart-turn-v2` 的美元价与神经元价差距明显；报告保存两者，要求核对，不擅自补一个用于计费的数值。API ID 保留官网 `data-model-id` 的大小写，例如 `@cf/ai4bharat/indictrans2-en-indic-1B`；不使用小写搜索字段冒充 API ID。
+来源中的报价差异记录在同步报告中。模型 ID 保留官方 API 标识的大小写，导入时应与渠道模型名称一致。
 
 ## 本地运行
 
 ```sh
-node --test
-node scripts/sync-cloudflare.mjs --help
 node scripts/sync-cloudflare.mjs --dry-run
 node scripts/sync-cloudflare.mjs --write
 ```
@@ -93,13 +102,11 @@ node scripts/sync-cloudflare.mjs --write
 
 - 每日 UTC 17:00，即次日北京时间 01:00 触发；也可在 Actions 页面手动运行。
 - 工作流和代码变更推送到默认分支时运行一次；生成 JSON 的提交不形成循环。
-- 先执行测试，再联网抓取和生成，最后只暂存四个生成 JSON，有实际变化才提交并推送。
+- 校验通过后抓取并生成价格数据，仅在四个生成 JSON 有变化时提交并推送。
 - 只使用仓库内置 `GITHUB_TOKEN`，不需要设置 Cloudflare Secret；同步任务有 `contents: write` 权限。
 - 如果仓库规则禁止机器人直接推送默认分支，提交步骤将失败并保留错误，需按仓库协作规则改为 PR 流程；不会强推或绕过保护。
 - GitHub 定时任务可能延迟，不保证精确到 01:00；工作流必须存在于默认分支。公开仓库 60 天无活动时定时任务可能停用，需要重新启用。参见 [GitHub schedule 文档](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)。
 
 网络失败、网页结构变化、模型计数不符、重复 ID、明显 token 价格冲突或已发布价格/模型消失时，脚本返回非零，工作流不会提交新价格。模型正式下线时需要人工核对并更新已提交的基线；不自动删除历史模型。
 
-生成文件不附加每天变化的时间戳，避免价格未变时每天提交；每日成功抓取的证据看 Actions 运行日志，价格内容更新时间看 Git 历史。新模型缺价格和非 token 单位会在每次运行摘要及 `sync-report.json` 中明确显示。
-
-本地生成与测试不代表 GitHub 定时任务已经启用，也不代表你的 New API 实例完成导入。发布后请先选一个已知模型核对显示价格与测试端点，再逐批应用。
+同步运行状态见 [GitHub Actions](https://github.com/58cdn/llm-meta/actions/workflows/sync-cloudflare.yml)，价格变更见 [提交记录](https://github.com/58cdn/llm-meta/commits/master/)。生成文件不附加每日变化的时间戳，价格未变时不产生额外提交。
