@@ -191,13 +191,10 @@ export function makeModelFiles(records, previousMapping = {}) {
     if (generated.has(alias) && generated.get(alias) !== id) throw Error(`Ambiguous model alias: ${alias}`);
     if (mapping.has(alias) && mapping.get(alias) !== id) throw Error(`Existing model alias conflicts with catalog: ${alias}`);
     generated.set(alias, id);
-    mapping.set(alias, id);
   }
   return {
     models: ids.join(','),
-    mapping: sortObject(Object.fromEntries(mapping)),
-    // Existing third-party and historical aliases are user data, not proof of current catalog support.
-    preservedAliases: [...mapping.keys()].filter((alias) => !generated.has(alias)).sort(),
+    mapping: sortObject(Object.fromEntries(generated)),
   };
 }
 
@@ -235,9 +232,8 @@ export async function main(args = process.argv.slice(2)) {
   }
   const mappingText = await readOptional(resolve(ROOT, 'newapi/cf_models_mapping.json'));
   const modelFiles = makeModelFiles(result.records, mappingText === null ? {} : JSON.parse(mappingText));
-  result.report.preserved_mapping_aliases = modelFiles.preservedAliases;
   console.log(JSON.stringify({ mode: args.includes('--write') ? 'write' : 'dry-run', catalog_models: result.records.length,
-    model_mapping_entries: Object.keys(modelFiles.mapping).length, preserved_mapping_aliases: modelFiles.preservedAliases.length,
+    model_mapping_entries: Object.keys(modelFiles.mapping).length,
     exported_token_models: result.report.exported_token_models.length,
     requires_unit_adapter: result.report.requires_unit_adapter.length, price_not_published: result.report.price_not_published.length,
     warnings: result.warnings, fee }, null, 2));

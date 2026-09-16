@@ -86,15 +86,16 @@ test('published price disappearance blocks replacement, including cached-price l
   assert.doesNotThrow(() => ensureNoLoss(prev, { data: { model_ratio: { a: 2 }, cache_ratio: { a: 0.2 } } }));
 });
 
-test('model list and mappings include unpriced models, preserve case and existing aliases', () => {
+test('model list and mappings correspond exactly, preserve case and exclude non-catalog aliases', () => {
   const records = [{ id: '@cf/test/model-1B', status: 'price_not_published' }, { id: '@cf/baai/bge-m3', status: 'token_priced' }];
   const original = { external: 'vendor/external', legacy: '@cf/old/legacy' };
   const files = makeModelFiles(records, original);
   assert.equal(files.models, '@cf/baai/bge-m3,@cf/test/model-1B');
   assert.equal(files.mapping['model-1B'], '@cf/test/model-1B');
-  assert.equal(files.mapping.external, 'vendor/external');
-  assert.equal(files.mapping.legacy, '@cf/old/legacy');
-  assert.deepEqual(files.preservedAliases, ['external', 'legacy']);
+  assert.equal(Object.hasOwn(files.mapping, 'external'), false);
+  assert.equal(Object.hasOwn(files.mapping, 'legacy'), false);
+  assert.deepEqual(Object.values(files.mapping).sort(), files.models.split(','));
+  assert.equal(Object.keys(files.mapping).length, records.length);
   assert.deepEqual(original, { external: 'vendor/external', legacy: '@cf/old/legacy' });
   assert.deepEqual(makeModelFiles([...records].reverse(), files.mapping), files);
 });

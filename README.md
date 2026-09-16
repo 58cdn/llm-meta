@@ -41,7 +41,7 @@ https://raw.githubusercontent.com/58cdn/llm-meta/master/newapi/ratio_config-v1-w
 - [支持的模型列表](https://raw.githubusercontent.com/58cdn/llm-meta/master/newapi/cf_models.txt)：保留官方完整模型 ID 和大小写，以英文逗号分隔，包含尚无可导入价格的模型。
 - [模型映射](https://raw.githubusercontent.com/58cdn/llm-meta/master/newapi/cf_models_mapping.json)：JSON 对象，例如 `"glm-5.3-flash": "@cf/zai-org/glm-5.3-flash"`，可用于 New API 渠道的模型映射配置。
 
-两份文件与价格使用同一批官方目录数据生成，并在同一次更新中提交。映射保留已有的第三方及历史条目，这些条目不代表当前 Workers AI 目录仍支持它们；清单见同步报告的 `preserved_mapping_aliases`。短名称冲突时停止同步并报错。
+两份文件与价格使用同一批官方目录数据生成，并在同一次更新中提交。模型列表与映射严格一一对应：每个完整 ID 恰有一条短名称映射，映射不包含列表之外的第三方或历史模型。短名称冲突时停止同步并报错。
 
 模型列表使用完整 ID，映射的键使用短名称。若客户端以短名称请求，还需在 New API 配置对应的渠道模型和计费项；本项目的价格文件按完整 ID 发布。仓库文件更新不会自动修改 New API 实例的渠道配置。
 
