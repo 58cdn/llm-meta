@@ -1,0 +1,2743 @@
+{
+  "schema_version": 1,
+  "currency": "USD",
+  "sources": {
+    "catalog": "https://developers.cloudflare.com/workers-ai/models/",
+    "pricing": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md",
+    "billing": "https://developers.cloudflare.com/ai-gateway/features/unified-billing/index.md"
+  },
+  "usd_per_1000_neurons": 0.011,
+  "unified_billing_purchase_fee": 0.05,
+  "free_allocation": {
+    "neurons_per_account_per_day": 10000,
+    "reset": "00:00 UTC",
+    "applied_to_model_prices": false
+  },
+  "models": [
+    {
+      "id": "@cf/ai4bharat/indictrans2-en-indic-1B",
+      "task": "Translation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/indictrans2-en-indic-1B/",
+      "price_text": "Input (per 1M tokens): $0.342\nOutput (per 1M tokens): $0.342",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.34155,
+        "output": 0.34155
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/ai4bharat/indictrans2-en-indic-1B",
+          "variant": "default",
+          "section": "Other model pricing",
+          "usd": [
+            {
+              "amount": 0.342,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.342,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 31050,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 31050,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.34155
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.34155
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/aisingapore/gemma-sea-lion-v4-27b-it",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/gemma-sea-lion-v4-27b-it/",
+      "price_text": "Input (per 1M tokens): $0.351\nOutput (per 1M tokens): $0.555",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.350636,
+        "output": 0.555368
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/aisingapore/gemma-sea-lion-v4-27b-it",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.351,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.555,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 31876,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 50488,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.350636
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.555368
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/baai/bge-base-en-v1.5",
+      "task": "Text Embeddings",
+      "url": "https://developers.cloudflare.com/workers-ai/models/bge-base-en-v1.5/",
+      "price_text": "Input (per 1M tokens): $0.0666",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.066638
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/baai/bge-base-en-v1.5",
+          "variant": "default",
+          "section": "Embeddings model pricing",
+          "usd": [
+            {
+              "amount": 0.067,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 6058,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.066638
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/baai/bge-large-en-v1.5",
+      "task": "Text Embeddings",
+      "url": "https://developers.cloudflare.com/workers-ai/models/bge-large-en-v1.5/",
+      "price_text": "Input (per 1M tokens): $0.204",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.204402
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/baai/bge-large-en-v1.5",
+          "variant": "default",
+          "section": "Embeddings model pricing",
+          "usd": [
+            {
+              "amount": 0.204,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 18582,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.204402
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/baai/bge-m3",
+      "task": "Text Embeddings",
+      "url": "https://developers.cloudflare.com/workers-ai/models/bge-m3/",
+      "price_text": "Input (per 1M tokens): $0.0118",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.011825
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/baai/bge-m3",
+          "variant": "default",
+          "section": "Embeddings model pricing",
+          "usd": [
+            {
+              "amount": 0.012,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 1075,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.011825
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/baai/bge-reranker-base",
+      "task": "Text Classification",
+      "url": "https://developers.cloudflare.com/workers-ai/models/bge-reranker-base/",
+      "price_text": "Input (per 1M tokens): $0.00311",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.003113
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/baai/bge-reranker-base",
+          "variant": "default",
+          "section": "Other model pricing",
+          "usd": [
+            {
+              "amount": 0.003,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 283,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.003113
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/baai/bge-small-en-v1.5",
+      "task": "Text Embeddings",
+      "url": "https://developers.cloudflare.com/workers-ai/models/bge-small-en-v1.5/",
+      "price_text": "Input (per 1M tokens): $0.0202",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.020251
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/baai/bge-small-en-v1.5",
+          "variant": "default",
+          "section": "Embeddings model pricing",
+          "usd": [
+            {
+              "amount": 0.02,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 1841,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.020251
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/black-forest-labs/flux-1-schnell",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/flux-1-schnell/",
+      "price_text": "",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/black-forest-labs/flux-1-schnell",
+          "variant": "default",
+          "section": "Image model pricing",
+          "usd": [
+            {
+              "amount": 0.0000528,
+              "unit": "512x512 tile"
+            },
+            {
+              "amount": 0.0001056,
+              "unit": "step"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 4.8,
+              "unit": "512x512 tile"
+            },
+            {
+              "amount": 9.6,
+              "unit": "step"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "512x512 tile",
+              "amount": 0.0000528
+            },
+            {
+              "unit": "step",
+              "amount": 0.0001056
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/black-forest-labs/flux-2-dev",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/flux-2-dev/",
+      "price_text": "",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/black-forest-labs/flux-2-dev",
+          "variant": "default",
+          "section": "Image model pricing",
+          "usd": [
+            {
+              "amount": 0.00021,
+              "unit": "input 512x512 tile, per step"
+            },
+            {
+              "amount": 0.00041,
+              "unit": "output 512x512 tile, per step"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 18.75,
+              "unit": "input 512x512 tile, per step"
+            },
+            {
+              "amount": 37.5,
+              "unit": "output 512x512 tile, per step"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "input 512x512 tile, per step",
+              "amount": 0.00020625
+            },
+            {
+              "unit": "output 512x512 tile, per step",
+              "amount": 0.0004125
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/black-forest-labs/flux-2-klein-4b",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/flux-2-klein-4b/",
+      "price_text": "",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/black-forest-labs/flux-2-klein-4b",
+          "variant": "default",
+          "section": "Image model pricing",
+          "usd": [
+            {
+              "amount": 0.000059,
+              "unit": "input 512x512 tile"
+            },
+            {
+              "amount": 0.000287,
+              "unit": "output 512x512 tile"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 5.37,
+              "unit": "input 512x512 tile"
+            },
+            {
+              "amount": 26.05,
+              "unit": "output 512x512 tile"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "input 512x512 tile",
+              "amount": 0.00005907
+            },
+            {
+              "unit": "output 512x512 tile",
+              "amount": 0.00028655
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/black-forest-labs/flux-2-klein-9b",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/flux-2-klein-9b/",
+      "price_text": "",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/black-forest-labs/flux-2-klein-9b",
+          "variant": "default",
+          "section": "Image model pricing",
+          "usd": [
+            {
+              "amount": 0.015,
+              "unit": "first MP (1024x1024)"
+            },
+            {
+              "amount": 0.002,
+              "unit": "subsequent MP"
+            },
+            {
+              "amount": 0.002,
+              "unit": "input image MP"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 1363.64,
+              "unit": "first MP (1024x1024)"
+            },
+            {
+              "amount": 181.82,
+              "unit": "subsequent MP"
+            },
+            {
+              "amount": 181.82,
+              "unit": "input image MP"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "first MP (1024x1024)",
+              "amount": 0.01500004
+            },
+            {
+              "unit": "subsequent MP",
+              "amount": 0.00200002
+            },
+            {
+              "unit": "input image MP",
+              "amount": 0.00200002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/bytedance/stable-diffusion-xl-lightning",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/stable-diffusion-xl-lightning/",
+      "price_text": "per step: $0.00",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/deepgram/aura-1",
+      "task": "Text-to-Speech",
+      "url": "https://developers.cloudflare.com/workers-ai/models/aura-1/",
+      "price_text": "per 1k characters: $0.015",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/deepgram/aura-1",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.015,
+              "unit": "1k characters input"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 1363.64,
+              "unit": "1k characters input"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "1k characters input",
+              "amount": 0.01500004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/deepgram/aura-2-en",
+      "task": "Text-to-Speech",
+      "url": "https://developers.cloudflare.com/workers-ai/models/aura-2-en/",
+      "price_text": "per 1k characters: $0.03",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/deepgram/aura-2-en",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.03,
+              "unit": "1k characters input"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 2727.27,
+              "unit": "1k characters input"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "1k characters input",
+              "amount": 0.02999997
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/deepgram/aura-2-es",
+      "task": "Text-to-Speech",
+      "url": "https://developers.cloudflare.com/workers-ai/models/aura-2-es/",
+      "price_text": "per 1k characters: $0.03",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/deepgram/aura-2-es",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.03,
+              "unit": "1k characters input"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 2727.27,
+              "unit": "1k characters input"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "1k characters input",
+              "amount": 0.02999997
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/deepgram/flux",
+      "task": "Automatic Speech Recognition",
+      "url": "https://developers.cloudflare.com/workers-ai/models/flux/",
+      "price_text": "per audio minute (websocket): $0.0077",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/deepgram/flux",
+          "variant": "WebSocket",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.0077,
+              "unit": "audio minute"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 700,
+              "unit": "audio minute"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "audio minute",
+              "amount": 0.0077
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/deepgram/nova-3",
+      "task": "Automatic Speech Recognition",
+      "url": "https://developers.cloudflare.com/workers-ai/models/nova-3/",
+      "price_text": "per audio minute: $0.0052\nper audio minute (websocket): $0.0092",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/deepgram/nova-3",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.0052,
+              "unit": "audio minute input"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 472.73,
+              "unit": "audio minute input"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "audio minute input",
+              "amount": 0.00520003
+            }
+          ]
+        },
+        {
+          "id": "@cf/deepgram/nova-3",
+          "variant": "WebSocket",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.0092,
+              "unit": "audio minute input"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 836.36,
+              "unit": "audio minute input"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "audio minute input",
+              "amount": 0.00919996
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/",
+      "price_text": "Input (per 1M tokens): $0.497\nOutput (per 1M tokens): $4.881",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.49687,
+        "output": 4.881316
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.497,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 4.881,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 45170,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 443756,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.49687
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 4.881316
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/deepseek-ai/deepseek-v4-flash-0731",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/",
+      "price_text": "Input (per 1M tokens): $0.44\nOutput (per 1M tokens): $1.32\nCached input (per 1M tokens): $0.014",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.44,
+        "cache_read": 0.014003,
+        "output": 1.32
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "cache_read": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/deepseek-ai/deepseek-v4-flash-0731",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.44,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.014,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 1.32,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 40000,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 1273,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 120000,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.44
+            },
+            {
+              "unit": "M cached input tokens",
+              "amount": 0.014003
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 1.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/",
+      "price_text": "Input (per 1M tokens): $1.32\nOutput (per 1M tokens): $3.96\nCached input (per 1M tokens): $0.044",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 1.32,
+        "cache_read": 0.044,
+        "output": 3.96
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "cache_read": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 1.32,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.044,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 3.96,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 120000,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 4000,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 360000,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 1.32
+            },
+            {
+              "unit": "M cached input tokens",
+              "amount": 0.044
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 3.96
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/google/embeddinggemma-300m",
+      "task": "Text Embeddings",
+      "url": "https://developers.cloudflare.com/workers-ai/models/embeddinggemma-300m/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/google/gemma-2b-it-lora",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/gemma-2b-it-lora/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/google/gemma-4-26b-a4b-it",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/",
+      "price_text": "Input (per 1M tokens): $0.10\nOutput (per 1M tokens): $0.30",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.100001,
+        "output": 0.300003
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/google/gemma-4-26b-a4b-it",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.1,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.3,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 9091,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 27273,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.100001
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.300003
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/google/gemma-7b-it-lora",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/gemma-7b-it-lora/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/huggingface/distilbert-sst-2-int8",
+      "task": "Text Classification",
+      "url": "https://developers.cloudflare.com/workers-ai/models/distilbert-sst-2-int8/",
+      "price_text": "Input (per 1M tokens): $0.0263",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.026334
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/huggingface/distilbert-sst-2-int8",
+          "variant": "default",
+          "section": "Other model pricing",
+          "usd": [
+            {
+              "amount": 0.026,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 2394,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.026334
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/ibm-granite/granite-4.0-h-micro",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/",
+      "price_text": "Input (per 1M tokens): $0.017\nOutput (per 1M tokens): $0.112",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.016962,
+        "output": 0.111738
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/ibm-granite/granite-4.0-h-micro",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.017,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.112,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 1542,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 10158,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.016962
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.111738
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/leonardo/lucid-origin",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/lucid-origin/",
+      "price_text": "per 512 by 512 tile: $0.007\nper step: $0.000132",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/leonardo/lucid-origin",
+          "variant": "default",
+          "section": "Image model pricing",
+          "usd": [
+            {
+              "amount": 0.006996,
+              "unit": "512x512 tile"
+            },
+            {
+              "amount": 0.000132,
+              "unit": "step"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 636,
+              "unit": "512x512 tile"
+            },
+            {
+              "amount": 12,
+              "unit": "step"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "512x512 tile",
+              "amount": 0.006996
+            },
+            {
+              "unit": "step",
+              "amount": 0.000132
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/leonardo/phoenix-1.0",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/phoenix-1.0/",
+      "price_text": "per 512 by 512 tile: $0.00583\nper step: $0.00011",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/leonardo/phoenix-1.0",
+          "variant": "default",
+          "section": "Image model pricing",
+          "usd": [
+            {
+              "amount": 0.00583,
+              "unit": "512x512 tile"
+            },
+            {
+              "amount": 0.00011,
+              "unit": "step"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 530,
+              "unit": "512x512 tile"
+            },
+            {
+              "amount": 10,
+              "unit": "step"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "512x512 tile",
+              "amount": 0.00583
+            },
+            {
+              "unit": "step",
+              "amount": 0.00011
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/llava-hf/llava-1.5-7b-hf",
+      "task": "Image-to-Text",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llava-1.5-7b-hf/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/lykon/dreamshaper-8-lcm",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/dreamshaper-8-lcm/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/meta-llama/llama-2-7b-chat-hf-lora",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-2-7b-chat-hf-lora/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/meta/llama-3.1-8b-instruct-fp8",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-3.1-8b-instruct-fp8/",
+      "price_text": "Input (per 1M tokens): $0.152\nOutput (per 1M tokens): $0.287",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.151558,
+        "output": 0.287408
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/llama-3.1-8b-instruct-fp8",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.152,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.287,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 13778,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 26128,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.151558
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.287408
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/meta/llama-3.2-11b-vision-instruct",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-3.2-11b-vision-instruct/",
+      "price_text": "Input (per 1M tokens): $0.0485\nOutput (per 1M tokens): $0.676",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.04851,
+        "output": 0.676423
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/llama-3.2-11b-vision-instruct",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.049,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.676,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 4410,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 61493,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.04851
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.676423
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/meta/llama-3.2-1b-instruct",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-3.2-1b-instruct/",
+      "price_text": "Input (per 1M tokens): $0.027\nOutput (per 1M tokens): $0.201",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.027027,
+        "output": 0.200772
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/llama-3.2-1b-instruct",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.027,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.201,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 2457,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 18252,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.027027
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.200772
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/meta/llama-3.2-3b-instruct",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-3.2-3b-instruct/",
+      "price_text": "Input (per 1M tokens): $0.0509\nOutput (per 1M tokens): $0.335",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.050875,
+        "output": 0.335225
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/llama-3.2-3b-instruct",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.051,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.335,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 4625,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 30475,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.050875
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.335225
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-3.3-70b-instruct-fp8-fast/",
+      "price_text": "Input (per 1M tokens): $0.293\nOutput (per 1M tokens): $2.253",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.293348,
+        "output": 2.252855
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.293,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 2.253,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 26668,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 204805,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.293348
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 2.252855
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/meta/llama-4-scout-17b-16e-instruct",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-4-scout-17b-16e-instruct/",
+      "price_text": "Input (per 1M tokens): $0.27\nOutput (per 1M tokens): $0.85",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.269995,
+        "output": 0.850003
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/llama-4-scout-17b-16e-instruct",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.27,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.85,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 24545,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 77273,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.269995
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.850003
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/meta/llama-guard-3-8b",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/",
+      "price_text": "Input (per 1M tokens): $0.484\nOutput (per 1M tokens): $0.03",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.484033,
+        "output": 0.03003
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/llama-guard-3-8b",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.484,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.03,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 44003,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 2730,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.484033
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.03003
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/meta/m2m100-1.2b",
+      "task": "Translation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/m2m100-1.2b/",
+      "price_text": "Input (per 1M tokens): $0.342\nOutput (per 1M tokens): $0.342",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.34155,
+        "output": 0.34155
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/meta/m2m100-1.2b",
+          "variant": "default",
+          "section": "Other model pricing",
+          "usd": [
+            {
+              "amount": 0.342,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.342,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 31050,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 31050,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.34155
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.34155
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/microsoft/resnet-50",
+      "task": "Image Classification",
+      "url": "https://developers.cloudflare.com/workers-ai/models/resnet-50/",
+      "price_text": "per inference request: $0.00000251",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/microsoft/resnet-50",
+          "variant": "default",
+          "section": "Other model pricing",
+          "usd": [
+            {
+              "amount": 2.51,
+              "unit": "M images"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 228055,
+              "unit": "M images"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M images",
+              "amount": 2.508605
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/mistral/mistral-7b-instruct-v0.2-lora",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/mistral-7b-instruct-v0.2-lora/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/mistral-small-3.1-24b-instruct/",
+      "price_text": "Input (per 1M tokens): $0.351\nOutput (per 1M tokens): $0.555",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.350636,
+        "output": 0.555368
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.351,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.555,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 31876,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 50488,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.350636
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.555368
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/moondream/moondream3.1-9B-A2B",
+      "task": "Image-to-Text",
+      "url": "https://developers.cloudflare.com/workers-ai/models/moondream3.1-9B-A2B/",
+      "price_text": "Input (per 1M tokens): $0.30\nOutput (per 1M tokens): $1.00",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.300003,
+        "output": 0.999999
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/moondream/moondream3.1-9B-A2B",
+          "variant": "default",
+          "section": "Other model pricing",
+          "usd": [
+            {
+              "amount": 0.3,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 1,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 27273,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 90909,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.300003
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.999999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/moonshotai/kimi-k2.6",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/kimi-k2.6/",
+      "price_text": "Input (per 1M tokens): $0.95\nOutput (per 1M tokens): $4.00\nCached input (per 1M tokens): $0.16",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.950004,
+        "cache_read": 0.159995,
+        "output": 3.999996
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "cache_read": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/moonshotai/kimi-k2.6",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.95,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.16,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 4,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 86364,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 14545,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 363636,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.950004
+            },
+            {
+              "unit": "M cached input tokens",
+              "amount": 0.159995
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 3.999996
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/moonshotai/kimi-k2.7-code",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/",
+      "price_text": "Input (per 1M tokens): $0.95\nOutput (per 1M tokens): $4.00\nCached input (per 1M tokens): $0.19",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.950004,
+        "cache_read": 0.190003,
+        "output": 3.999996
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "cache_read": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/moonshotai/kimi-k2.7-code",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.95,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.19,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 4,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 86364,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 17273,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 363636,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.950004
+            },
+            {
+              "unit": "M cached input tokens",
+              "amount": 0.190003
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 3.999996
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/myshell-ai/melotts",
+      "task": "Text-to-Speech",
+      "url": "https://developers.cloudflare.com/workers-ai/models/melotts/",
+      "price_text": "per audio minute: $0.000205",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/myshell-ai/melotts",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.0002,
+              "unit": "audio minute"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 18.63,
+              "unit": "audio minute"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "audio minute",
+              "amount": 0.00020493
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/nvidia/nemotron-3-120b-a12b",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/nemotron-3-120b-a12b/",
+      "price_text": "Input (per 1M tokens): $0.50\nOutput (per 1M tokens): $1.50",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.500005,
+        "output": 1.500004
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/nvidia/nemotron-3-120b-a12b",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.5,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 1.5,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 45455,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 136364,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.500005
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 1.500004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/openai/gpt-oss-120b",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/",
+      "price_text": "Input (per 1M tokens): $0.35\nOutput (per 1M tokens): $0.75",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.349998,
+        "output": 0.750002
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/openai/gpt-oss-120b",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.35,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.75,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 31818,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 68182,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.349998
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.750002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/openai/gpt-oss-20b",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/gpt-oss-20b/",
+      "price_text": "Input (per 1M tokens): $0.20\nOutput (per 1M tokens): $0.30",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.200002,
+        "output": 0.300003
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/openai/gpt-oss-20b",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.2,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.3,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 18182,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 27273,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.200002
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.300003
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/openai/whisper",
+      "task": "Automatic Speech Recognition",
+      "url": "https://developers.cloudflare.com/workers-ai/models/whisper/",
+      "price_text": "per audio minute: $0.000453",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/openai/whisper",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.0005,
+              "unit": "audio minute"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 41.14,
+              "unit": "audio minute"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "audio minute",
+              "amount": 0.00045254
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/openai/whisper-large-v3-turbo",
+      "task": "Automatic Speech Recognition",
+      "url": "https://developers.cloudflare.com/workers-ai/models/whisper-large-v3-turbo/",
+      "price_text": "per audio minute: $0.000513",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/openai/whisper-large-v3-turbo",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.0005,
+              "unit": "audio minute"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 46.63,
+              "unit": "audio minute"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "audio minute",
+              "amount": 0.00051293
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/openai/whisper-tiny-en",
+      "task": "Automatic Speech Recognition",
+      "url": "https://developers.cloudflare.com/workers-ai/models/whisper-tiny-en/",
+      "price_text": "",
+      "status": "price_not_published",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/pfnet/plamo-embedding-1b",
+      "task": "Text Embeddings",
+      "url": "https://developers.cloudflare.com/workers-ai/models/plamo-embedding-1b/",
+      "price_text": "Input (per 1M tokens): $0.0186",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.018579
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/pfnet/plamo-embedding-1b",
+          "variant": "default",
+          "section": "Embeddings model pricing",
+          "usd": [
+            {
+              "amount": 0.019,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 1689,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.018579
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/pipecat-ai/smart-turn-v2",
+      "task": "Dumb Pipe",
+      "url": "https://developers.cloudflare.com/workers-ai/models/smart-turn-v2/",
+      "price_text": "per audio minute: $0.000338",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": [
+        {
+          "id": "@cf/pipecat-ai/smart-turn-v2",
+          "variant": "default",
+          "section": "Audio model pricing",
+          "usd": [
+            {
+              "amount": 0.00033795,
+              "unit": "audio minute input"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 0.51,
+              "unit": "audio minute input"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "audio minute input",
+              "amount": 0.00000561
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/qwen/qwen2.5-coder-32b-instruct",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/qwen2.5-coder-32b-instruct/",
+      "price_text": "Input (per 1M tokens): $0.66\nOutput (per 1M tokens): $1.00",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.66,
+        "output": 0.999999
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/qwen/qwen2.5-coder-32b-instruct",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.66,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 1,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 60000,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 90909,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.66
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.999999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/qwen3-30b-a3b-fp8/",
+      "price_text": "Input (per 1M tokens): $0.0509\nOutput (per 1M tokens): $0.335",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.050875,
+        "output": 0.335225
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/qwen/qwen3-30b-a3b-fp8",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.051,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.335,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 4625,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 30475,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.050875
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.335225
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/qwen/qwen3-embedding-0.6b",
+      "task": "Text Embeddings",
+      "url": "https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/",
+      "price_text": "Input (per 1M tokens): $0.0118",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.011825
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/qwen/qwen3-embedding-0.6b",
+          "variant": "default",
+          "section": "Embeddings model pricing",
+          "usd": [
+            {
+              "amount": 0.012,
+              "unit": "M input tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 1075,
+              "unit": "M input tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.011825
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/qwen/qwen3.8-27b",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/qwen3.8-27b/",
+      "price_text": "Input (per 1M tokens): $0.45\nOutput (per 1M tokens): $3.20\nCached input (per 1M tokens): $0.05",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.449999,
+        "output": 3.199999,
+        "cache_read": 0.05
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons",
+        "cache_read": "catalog_usd"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/qwen/qwen3.8-27b",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.45,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 3.2,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 40909,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 290909,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.449999
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 3.199999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/qwen/qwq-32b",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/qwq-32b/",
+      "price_text": "Input (per 1M tokens): $0.66\nOutput (per 1M tokens): $1.00",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.66,
+        "output": 0.999999
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/qwen/qwq-32b",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.66,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 1,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 60000,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 90909,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.66
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.999999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/runwayml/stable-diffusion-v1-5-inpainting",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/stable-diffusion-v1-5-inpainting/",
+      "price_text": "per step: $0.00",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "task": "Text-to-Image",
+      "url": "https://developers.cloudflare.com/workers-ai/models/stable-diffusion-xl-base-1.0/",
+      "price_text": "per step: $0.00",
+      "status": "requires_unit_adapter",
+      "usd_per_million_tokens": {},
+      "price_basis": {},
+      "published_rates": []
+    },
+    {
+      "id": "@cf/zai-org/glm-4.7-flash",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/",
+      "price_text": "Input (per 1M tokens): $0.0605\nOutput (per 1M tokens): $0.40",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.0605,
+        "output": 0.4004
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/zai-org/glm-4.7-flash",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.06,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.4,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 5500,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 36400,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.0605
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.4004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/zai-org/glm-5.2",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/glm-5.2/",
+      "price_text": "Input (per 1M tokens): $1.40\nOutput (per 1M tokens): $4.40\nCached input (per 1M tokens): $0.26",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 1.400003,
+        "cache_read": 0.259996,
+        "output": 4.4
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "cache_read": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/zai-org/glm-5.2",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 1.4,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.26,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 4.4,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 127273,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 23636,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 400000,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 1.400003
+            },
+            {
+              "unit": "M cached input tokens",
+              "amount": 0.259996
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 4.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/zai-org/glm-5.3",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/glm-5.3/",
+      "price_text": "Input (per 1M tokens): $1.40\nOutput (per 1M tokens): $4.40\nCached input (per 1M tokens): $0.26",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 1.400003,
+        "cache_read": 0.259996,
+        "output": 4.4
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "cache_read": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/zai-org/glm-5.3",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 1.4,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.26,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 4.4,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 127273,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 23636,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 400000,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 1.400003
+            },
+            {
+              "unit": "M cached input tokens",
+              "amount": 0.259996
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 4.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "@cf/zai-org/glm-5.3-flash",
+      "task": "Text Generation",
+      "url": "https://developers.cloudflare.com/workers-ai/models/glm-5.3-flash/",
+      "price_text": "Input (per 1M tokens): $0.15\nOutput (per 1M tokens): $0.50\nCached input (per 1M tokens): $0.03",
+      "status": "token_priced",
+      "usd_per_million_tokens": {
+        "input": 0.149996,
+        "cache_read": 0.029997,
+        "output": 0.500005
+      },
+      "price_basis": {
+        "input": "pricing_table_neurons",
+        "cache_read": "pricing_table_neurons",
+        "output": "pricing_table_neurons"
+      },
+      "published_rates": [
+        {
+          "id": "@cf/zai-org/glm-5.3-flash",
+          "variant": "default",
+          "section": "LLM model pricing",
+          "usd": [
+            {
+              "amount": 0.15,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 0.03,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 0.5,
+              "unit": "M output tokens"
+            }
+          ],
+          "neurons": [
+            {
+              "amount": 13636,
+              "unit": "M input tokens"
+            },
+            {
+              "amount": 2727,
+              "unit": "M cached input tokens"
+            },
+            {
+              "amount": 45455,
+              "unit": "M output tokens"
+            }
+          ],
+          "neuron_derived_usd": [
+            {
+              "unit": "M input tokens",
+              "amount": 0.149996
+            },
+            {
+              "unit": "M cached input tokens",
+              "amount": 0.029997
+            },
+            {
+              "unit": "M output tokens",
+              "amount": 0.500005
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

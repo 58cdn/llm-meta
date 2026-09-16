@@ -1,0 +1,12 @@
+{
+  "name": "llm-meta",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "sync": "node scripts/sync-cloudflare.mjs --write",
+    "preview": "node scripts/sync-cloudflare.mjs --dry-run"
+  }
+}

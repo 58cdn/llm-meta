@@ -1,0 +1,134 @@
+{
+  "catalog_models": 65,
+  "exported_token_models": [
+    "@cf/ai4bharat/indictrans2-en-indic-1B",
+    "@cf/aisingapore/gemma-sea-lion-v4-27b-it",
+    "@cf/baai/bge-base-en-v1.5",
+    "@cf/baai/bge-large-en-v1.5",
+    "@cf/baai/bge-m3",
+    "@cf/baai/bge-reranker-base",
+    "@cf/baai/bge-small-en-v1.5",
+    "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
+    "@cf/deepseek-ai/deepseek-v4-flash-0731",
+    "@cf/deepseek-ai/deepseek-v4-pro-0813",
+    "@cf/google/gemma-4-26b-a4b-it",
+    "@cf/huggingface/distilbert-sst-2-int8",
+    "@cf/ibm-granite/granite-4.0-h-micro",
+    "@cf/meta/llama-3.1-8b-instruct-fp8",
+    "@cf/meta/llama-3.2-11b-vision-instruct",
+    "@cf/meta/llama-3.2-1b-instruct",
+    "@cf/meta/llama-3.2-3b-instruct",
+    "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "@cf/meta/llama-guard-3-8b",
+    "@cf/meta/m2m100-1.2b",
+    "@cf/mistralai/mistral-small-3.1-24b-instruct",
+    "@cf/moondream/moondream3.1-9B-A2B",
+    "@cf/moonshotai/kimi-k2.6",
+    "@cf/moonshotai/kimi-k2.7-code",
+    "@cf/nvidia/nemotron-3-120b-a12b",
+    "@cf/openai/gpt-oss-120b",
+    "@cf/openai/gpt-oss-20b",
+    "@cf/pfnet/plamo-embedding-1b",
+    "@cf/qwen/qwen2.5-coder-32b-instruct",
+    "@cf/qwen/qwen3-30b-a3b-fp8",
+    "@cf/qwen/qwen3-embedding-0.6b",
+    "@cf/qwen/qwen3.8-27b",
+    "@cf/qwen/qwq-32b",
+    "@cf/zai-org/glm-4.7-flash",
+    "@cf/zai-org/glm-5.2",
+    "@cf/zai-org/glm-5.3",
+    "@cf/zai-org/glm-5.3-flash"
+  ],
+  "requires_unit_adapter": [
+    "@cf/black-forest-labs/flux-1-schnell",
+    "@cf/black-forest-labs/flux-2-dev",
+    "@cf/black-forest-labs/flux-2-klein-4b",
+    "@cf/black-forest-labs/flux-2-klein-9b",
+    "@cf/bytedance/stable-diffusion-xl-lightning",
+    "@cf/deepgram/aura-1",
+    "@cf/deepgram/aura-2-en",
+    "@cf/deepgram/aura-2-es",
+    "@cf/deepgram/flux",
+    "@cf/deepgram/nova-3",
+    "@cf/leonardo/lucid-origin",
+    "@cf/leonardo/phoenix-1.0",
+    "@cf/microsoft/resnet-50",
+    "@cf/myshell-ai/melotts",
+    "@cf/openai/whisper",
+    "@cf/openai/whisper-large-v3-turbo",
+    "@cf/pipecat-ai/smart-turn-v2",
+    "@cf/runwayml/stable-diffusion-v1-5-inpainting",
+    "@cf/stabilityai/stable-diffusion-xl-base-1.0"
+  ],
+  "price_not_published": [
+    "@cf/google/embeddinggemma-300m",
+    "@cf/google/gemma-2b-it-lora",
+    "@cf/google/gemma-7b-it-lora",
+    "@cf/llava-hf/llava-1.5-7b-hf",
+    "@cf/lykon/dreamshaper-8-lcm",
+    "@cf/meta-llama/llama-2-7b-chat-hf-lora",
+    "@cf/mistral/mistral-7b-instruct-v0.2-lora",
+    "@cf/openai/whisper-tiny-en"
+  ],
+  "pricing_rows_not_in_catalog": [
+    {
+      "id": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/meta/llama-3.1-70b-instruct-fp8-fast",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/mistral/mistral-7b-instruct-v0.1",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/meta/llama-3.1-8b-instruct",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/meta/llama-3.1-8b-instruct-awq",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/meta/llama-3-8b-instruct",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/meta/llama-3-8b-instruct-awq",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/meta/llama-2-7b-chat-fp16",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/google/gemma-3-12b-it",
+      "variant": "default"
+    },
+    {
+      "id": "@cf/moonshotai/kimi-k2.5",
+      "variant": "default"
+    }
+  ],
+  "warnings": [
+    {
+      "model": "@cf/openai/whisper",
+      "variant": "default",
+      "unit": "audio minute",
+      "issue": "official_usd_neuron_disagreement",
+      "published_usd": 0.0005,
+      "neuron_derived_usd": 0.00045254
+    },
+    {
+      "model": "@cf/pipecat-ai/smart-turn-v2",
+      "variant": "default",
+      "unit": "audio minute input",
+      "issue": "official_usd_neuron_disagreement",
+      "published_usd": 0.00033795,
+      "neuron_derived_usd": 0.00000561
+    }
+  ]
+}

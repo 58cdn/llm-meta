@@ -1,0 +1,50 @@
+name: Sync Cloudflare Workers AI prices
+
+on:
+  schedule:
+    # 17:00 UTC = 次日北京时间 01:00；GitHub 队列可能延迟执行。
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/**'
+      - 'test/**'
+      - 'package.json'
+      - '.github/workflows/sync-cloudflare.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-price-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test parser and conversion
+        run: node --test
+      - name: Fetch, validate and generate JSON
+        run: node scripts/sync-cloudflare.mjs --write
+      - name: Commit changed price data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- newapi/ratio_config-v1.json newapi/ratio_config-v1-with-fee.json data/cloudflare-workers-ai.json data/sync-report.json
+          if git diff --cached --quiet; then
+            echo 'No price or coverage changes; no commit needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: 同步 Cloudflare Workers AI 价格'
+          git push
